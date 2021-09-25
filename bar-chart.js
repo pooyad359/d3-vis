@@ -1,29 +1,28 @@
 const svg = d3.select("svg");
-svg.style("background-color", "#aaaaaa");
+svg.style("background-color", "#cccccc");
 const width = +svg.attr("width");
 const height = +svg.attr("height");
 
-url =
-  "https://datahub.io/JohnSnowLabs/population-figures-by-country/r/population-figures-by-country-csv.csv";
+url = "http://localhost:8000/csv/pop";
 
 barChart = (data) => {
   const margin = { top: 20, botom: 20, left: 100, right: 20 };
   innerWidth = width - margin.left - margin.right;
   innerHeight = height - margin.top - margin.botom;
-  xValue = (d) => d.country;
-  yValue = (d) => d.population;
+  xValue = (d) => d.Country;
+  yValue = (d) => d.Population;
+  console.log(d3.max(data, yValue));
   const xScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, yValue)])
-    .range([0, innerWidth * 0.9]);
+    .domain([0, d3.max(data, yValue) * 1.1])
+    .range([0, innerWidth]);
+
   const yScale = d3
     .scaleBand()
     .domain(data.map(xValue))
     .range([0, innerHeight])
     .padding(0.1);
 
-  //   yAxis = d3.axisLeft(yScale);
-  //   xAxis = d3.axisBottom(xScale);
   // Render
   const g = svg
     .append("g")
@@ -43,10 +42,11 @@ barChart = (data) => {
     .attr("fill", "steelblue");
 };
 
-d3.csv(url).then((data) => {
-  data.forEach((row) => {
-    row.country = row.Country;
-    row.population = +row.Year_2016;
+fetch(url)
+  .then((resp) => resp.json())
+  .then((data) => {
+    data.forEach((row) => {
+      row.Population = +row.Population;
+    });
+    barChart(data);
   });
-  barChart(data.filter((d) => d.population > 2e8));
-});
