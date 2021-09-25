@@ -2,11 +2,18 @@
 <html>
   <head>
     <title>D3.js</title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="bar-chart.css" />
     <script src="https://unpkg.com/d3@7.0.4/dist/d3.min.js"></script>
   </head>
   <body>
-    <svg width="960" height="500"></svg>
+    <header>
+      <div class="flex">
+        <h1 class="main-title">Some Populations</h1>
+      </div>
+    </header>
+    <div class="plot-container flex">
+      <svg width="800" height="400" id="population-bar-chart"></svg>
+    </div>
     <script src="bar-chart.js"></script>
   </body>
 </html>

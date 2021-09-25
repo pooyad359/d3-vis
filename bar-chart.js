@@ -1,8 +1,7 @@
-const svg = d3.select("svg");
+const svg = d3.select("#population-bar-chart");
 svg.style("background-color", "#cccccc");
 const width = +svg.attr("width");
 const height = +svg.attr("height");
-
 url = "http://localhost:8000/csv/pop";
 
 barChart = (data) => {
