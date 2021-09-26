@@ -17,6 +17,8 @@ body {
 
 .plot-container {
   margin: auto 2rem;
+  background-color: rgb(212, 212, 212);
+  padding: 1rem;
 }
 
 .flex {
@@ -26,4 +28,8 @@ body {
 
 g g text {
   font-size: 0.8rem;
+}
+
+text {
+  font-family: "Times New Roman", Times, serif;
 }

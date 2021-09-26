@@ -1,11 +1,11 @@
 const svg = d3.select("#population-bar-chart");
-svg.style("background-color", "#cccccc");
+svg.style("background-color", "#00000000");
 const width = +svg.attr("width");
 const height = +svg.attr("height");
 url = "http://localhost:8000/csv/pop";
 
 barChart = (data) => {
-  const margin = { top: 20, botom: 20, left: 100, right: 20 };
+  const margin = { top: 40, botom: 20, left: 100, right: 20 };
   innerWidth = width - margin.left - margin.right;
   innerHeight = height - margin.top - margin.botom;
   xValue = (d) => d.Country;
@@ -47,6 +47,12 @@ barChart = (data) => {
     .attr("width", (d) => xScale(yValue(d)))
     .attr("height", yScale.bandwidth())
     .attr("fill", "steelblue");
+
+  g.append("text")
+    .attr("y", "-1rem")
+    .attr("font-size", "2rem")
+    .attr("x", "25%")
+    .text("Countries Population");
 };
 
 fetch(url)
