@@ -5,7 +5,7 @@ const height = +svg.attr("height");
 url = "http://localhost:8000/csv/pop";
 
 barChart = (data) => {
-  const margin = { top: 40, botom: 20, left: 100, right: 20 };
+  const margin = { top: 40, botom: 60, left: 100, right: 20 };
   innerWidth = width - margin.left - margin.right;
   innerHeight = height - margin.top - margin.botom;
   xValue = (d) => d.Country;
@@ -37,7 +37,17 @@ barChart = (data) => {
   const xAxisTickFormat = (number) =>
     d3.format(".2s")(number).replace("G", "B");
   const xAxis = d3.axisBottom(xScale).tickFormat(xAxisTickFormat);
-  g.append("g").call(xAxis).attr("transform", `translate(0,${innerHeight})`);
+  const xAxisG = g
+    .append("g")
+    .call(xAxis)
+    .attr("transform", `translate(0,${innerHeight})`);
+  xAxisG
+    .append("text")
+    .attr("y", "3rem")
+    .attr("class", "axis-title")
+    .attr("x", "40%")
+    .attr("fill", "black")
+    .text("Population");
 
   g.selectAll("rect")
     .data(data)
