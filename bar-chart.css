@@ -23,3 +23,7 @@ body {
   display: flex;
   align-items: center;
 }
+
+g g text {
+  font-size: 0.8rem;
+}
