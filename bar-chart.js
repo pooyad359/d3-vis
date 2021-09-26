@@ -28,7 +28,10 @@ barChart = (data) => {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   // y-Axis
-  g.append("g").call(d3.axisLeft(yScale));
+  g.append("g")
+    .call(d3.axisLeft(yScale)) // Add axis
+    .selectAll(".domain, .tick line")
+    .remove(); // remove ticks
 
   // x-Axis
   const xAxisTickFormat = (number) =>
