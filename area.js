@@ -4,7 +4,7 @@ const width = +svg.attr("width");
 const height = +svg.attr("height");
 url = "http://localhost:8000/csv/weather";
 
-barChart = (data) => {
+areaChart = (data) => {
   // Settings
   const xValue = (d) => d.time;
   const yValue = (d) => d.AirTemperature;
@@ -46,7 +46,6 @@ barChart = (data) => {
     .text(yTitle);
 
   // x-Axis
-
   const xAxis = d3.axisBottom(xScale).ticks(6).tickPadding(10);
   const xAxisG = g
     .append("g")
@@ -92,5 +91,5 @@ fetch(url)
     data.map((row) => {
       console.log(row.time);
     });
-    barChart(data.slice(0, 12 * 14));
+    areaChart(data.slice(0, 12 * 14));
   });
