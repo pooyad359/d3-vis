@@ -1,7 +1,8 @@
 const svg = d3.select("#area-plot");
 svg.style("background-color", "#00000000");
-const width = +svg.attr("width");
-const height = +svg.attr("height");
+const width = window.innerWidth * 0.8;
+const height = window.innerHeight * 0.8;
+svg.attr("width", width).attr("height", height);
 url = "http://localhost:8000/csv/weather";
 
 areaChart = (data) => {
@@ -11,7 +12,6 @@ areaChart = (data) => {
   const xTitle = "Date";
   const yTitle = "Air Temperature (C)";
   const plotTitle = "Temperature";
-  const markerSize = 2;
   const margin = { top: 40, botom: 60, left: 100, right: 20 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.botom;
@@ -40,7 +40,7 @@ areaChart = (data) => {
     .append("text")
     .attr("transform", `rotate(-90)`)
     .attr("y", "-3rem")
-    .attr("x", "-10%")
+    .attr("x", -innerHeight / 2)
     .attr("class", "axis-title")
     .attr("fill", "black")
     .text(yTitle);
@@ -55,7 +55,7 @@ areaChart = (data) => {
     .append("text")
     .attr("y", "3.5rem")
     .attr("class", "axis-title")
-    .attr("x", "40%")
+    .attr("x", innerWidth / 2)
     .attr("fill", "black")
     .text(xTitle);
 
@@ -72,7 +72,7 @@ areaChart = (data) => {
   g.append("text")
     .attr("y", "-1rem")
     .attr("font-size", "2rem")
-    .attr("x", "25%")
+    .attr("x", innerWidth / 2)
     .text(plotTitle);
 };
 

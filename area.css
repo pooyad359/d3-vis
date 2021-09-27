@@ -13,6 +13,7 @@ body {
 
 .main-title {
   margin: 1rem auto;
+  text-anchor: middle;
 }
 
 .plot-container {
@@ -32,10 +33,12 @@ g g text {
 
 text {
   font-family: "Times New Roman", Times, serif;
+  text-anchor: middle;
 }
 
 .axis-title {
   font-size: 1.2rem;
+  text-anchor: middle;
 }
 
 .scatter-points {
