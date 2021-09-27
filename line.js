@@ -40,7 +40,7 @@ barChart = (data) => {
     .append("text")
     .attr("transform", `rotate(-90)`)
     .attr("y", "-3rem")
-    .attr("x", "-15%")
+    .attr("x", "-10%")
     .attr("class", "axis-title")
     .attr("fill", "black")
     .text(yTitle);
@@ -54,7 +54,7 @@ barChart = (data) => {
     .attr("transform", `translate(0,${innerHeight})`);
   xAxisG
     .append("text")
-    .attr("y", "3rem")
+    .attr("y", "3.5rem")
     .attr("class", "axis-title")
     .attr("x", "40%")
     .attr("fill", "black")
@@ -101,5 +101,5 @@ fetch(url)
     data.map((row) => {
       console.log(row.time);
     });
-    barChart(data.slice(0, 12 * 7));
+    barChart(data.slice(0, 12 * 14));
   });
