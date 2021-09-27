@@ -1,0 +1,50 @@
+body {
+  margin: 0px 0px;
+  padding: 0px px;
+}
+
+.svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto 2rem;
+}
+
+.main-title {
+  margin: 1rem auto;
+}
+
+.plot-container {
+  margin: auto 2rem;
+  background-color: rgb(212, 212, 212);
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+g g text {
+  font-size: 1rem;
+}
+
+text {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.axis-title {
+  font-size: 1.2rem;
+}
+
+.scatter-points {
+  fill: rgb(54, 97, 190);
+}
+
+.plot-line {
+  fill: lightblue;
+  stroke: darkblue;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
